@@ -7,15 +7,25 @@
       When kullanici "datatablesUrl" anasayfasinda
       Then new butonuna basar
       And isim bölümüne "<firstName>" yazar
+      And kullanici 1 sn bekler
       And soyisim bölümüne "<lastName>" yazar
+      And kullanici 1 sn bekler
       And position bölümüne "<position>" yazar
+      And kullanici 1 sn bekler
       And office bölümüne "<office>" yazar
+      And kullanici 1 sn bekler
       And extension bölümüne "<extension>" yazar
+      And kullanici 1 sn bekler
       And startDate bölümüne "<startDate>" yazar
+      And kullanici 1 sn bekler
       And salary bölümüne "<salary>" yazar
+      And kullanici 1 sn bekler
       And Create tusuna basar
-      When kullanici ilk isim ile arama yapar
-      Then isim bolumunde isminin oldugunu dogrular
+      And kullanici 1 sn bekler
+      When kullanici "<firstName>" ile arama yapar
+      And kullanici 1 sn bekler
+      Then isim bolumunde "<firstName>" oldugunu test eder
+      And kullanici 1 sn bekler
       And sayfayi kapatir
 
 
