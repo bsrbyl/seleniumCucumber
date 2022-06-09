@@ -1,7 +1,7 @@
 
 
   Feature: US1012 web tablosundaki sutunu yazdirma
-@guru
+@guru @pr2
     Scenario:TC16 kullanici sutun basligi ile liste alabilir
 
 
