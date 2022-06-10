@@ -3,7 +3,11 @@ package stepDefinitions;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 import pages.BrcPage;
+import utilities.ConfigReader;
+import utilities.Driver;
 
 public class BrcStepDefinitions {
 
@@ -22,29 +26,21 @@ public class BrcStepDefinitions {
     public void last_name_bolumune_yazar(String lastName) {
       brcpage.lastName.sendKeys(lastName);
     }
-    @Then("phoneNumber bolumune {string} yazar")
-    public void phone_number_bolumune_yazar(String phoneNumber) {
-    brcpage.phoneNumber.sendKeys(phoneNumber);
-    }
+
     @Then("zipCode bolumune {string} yazar")
     public void zip_code_bolumune_yazar(String zipCode) {
     brcpage.zipCode.sendKeys(zipCode);
     }
-    @Then("email bolumune {string} yazar")
-    public void email_bolumune_yazar(String email) {
-     brcpage.email.sendKeys(email);
-    }
-    @Then("password bolumune {string} yazar")
-    public void password_bolumune_yazar(String password) {
-    brcpage.password.sendKeys(password);
-    }
+
+
     @Then("passwordConfirm bolumune {string} yazar")
     public void password_confirm_bolumune_yazar(String passwordConfirm) {
      brcpage.confirmPassword.sendKeys(passwordConfirm);
     }
     @Then("register butonuna basar")
     public void register_butonuna_basar() {
-     brcpage.registerButton.click();
+
+        brcpage.registerButton.click();
     }
 
 
@@ -57,5 +53,28 @@ public class BrcStepDefinitions {
     @And("adress bolumune {string} yazar")
     public void adressBolumuneYazar(String address) {
         brcpage.address.sendKeys(address);
+    }
+
+    @And("phoneNumber bolumune  yazar")
+    public void phonenumberBolumuneYazar() {
+       // brcpage.phoneNumber.sendKeys(ConfigReader.getProperty(phoneNumber) );
+        Actions actions = new Actions(Driver.getDriver());
+       actions.sendKeys(Keys.TAB).sendKeys("1234567890").perform();
+    }
+
+    @And("email bolumune {string} yazar")
+    public void emailBolumuneYazar(String email) {
+        brcpage.email.sendKeys(ConfigReader.getProperty(email));
+    }
+
+    @And("password bolumune {string} yazar")
+    public void passwordBolumuneYazar(String password) {
+        brcpage.password.sendKeys(ConfigReader.getProperty(password));
+    }
+
+
+    @And("kullanici analogin butonuna basar")
+    public void kullaniciAnaloginButonunaBasar() {
+        brcpage.loginButonu2.click();
     }
 }

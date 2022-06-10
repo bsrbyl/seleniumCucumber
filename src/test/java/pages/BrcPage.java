@@ -44,6 +44,10 @@ public class BrcPage {
     @FindBy(xpath = "//button[@type='submit']")
     public WebElement registerButton;
 
+    @FindBy(xpath = "(//button[@class='btn btn-primary'])[3]")
+    public WebElement asagiclick;
 
+    @FindBy(xpath = "//button[@type='submit']")
+    public WebElement loginButonu2;
 
 }

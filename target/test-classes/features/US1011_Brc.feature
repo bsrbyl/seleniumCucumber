@@ -4,23 +4,23 @@ Feature: US1011 bilgilerle site kullanimi
 #
 #Hesap olusturun
 #
-  Scenario Outline: hesap olustur
+  Scenario Outline: Brc01 hesap olustur
     Given kullanici "brcUrl" anasayfasinda
     Then Kullanici Login butonuna basar
     And kullnici Create new user butonuna basar
     And  firstName bolumune "<firstName>" yazar
     And kullanici 1 sn bekler
     And lastName bolumune "<lastName>" yazar
-    And kullanici 1 sn bekler
-    And phoneNumber bolumune "<phoneNumber>" yazar
+    And kullanici 3 sn bekler
+    And phoneNumber bolumune  yazar
     And kullanici 3 sn bekler
     And adress bolumune "<address>" yazar
     And kullanici 1 sn bekler
     And zipCode bolumune "<zipCode>" yazar
     And kullanici 1 sn bekler
-    And email bolumune "<email>" yazar
+    And email bolumune "brcEmail" yazar
     And kullanici 1 sn bekler
-    And password bolumune "<password>" yazar
+    And password bolumune "brcPassword" yazar
     And kullanici 1 sn bekler
     And passwordConfirm bolumune "<passwordConfirm>" yazar
     And kullanici 1 sn bekler
@@ -28,16 +28,26 @@ Feature: US1011 bilgilerle site kullanimi
 
 
     Examples:
-      | firstName | lastName | phoneNumber |address    |zipCode    | email         | password | passwordConfirm |
-      | ayse      | fatma    | 1234561212  |konya     | 789456    | abc@gmail.com | 12345    | 12345           |
+      | firstName | lastName | address   |zipCode    | passwordConfirm |
+      | ayse      | fatma    | konya     | 789456    | 12345           |
 
 #TEST 2
-#
 # Test 1 de olusturdugumuz hesapla
 # login olalim
 #2- Audi Q8 i secip reservasyon yapalim
 #3- reservasyon yaptigimizi dogrulayalim
 #
+  Scenario: Brc02 login ol reservasyon yap
+
+    Given kullanici "brcUrl" anasayfasinda
+    Then Kullanici Login butonuna basar
+    And email bolumune "brcEmail" yazar
+    And kullanici 1 sn bekler
+    And password bolumune "brcPassword" yazar
+    And kullanici 1 sn bekler
+
+
+
 #
 #TEST 3
 #
